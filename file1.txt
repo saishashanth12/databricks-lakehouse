@@ -1,1 +1,113 @@
+                             DATABRICKS LAKEHOUSE
 
+
+        INTRODUCTION:
+
+•	The Data bricks Lakehouse combines the ACID transactions and data governance of data warehouses with the flexibility and cost-efficiency of data lakes to enable business intelligence (BI) and machine learning (ML) on all data.
+
+•	The Data bricks Lakehouse keeps your data in your massively scalable cloud object storage in open-source data standards, allowing you to use your data however and wherever you want.
+
+•	Lakehouse: A New Generation of Open Platforms that Unify Data Warehousing and Advanced Analytics and another academic paper Delta Lake: High-Performance ACID Table Storage over Cloud Object Stores.
+
+•	Data lake houses are enabled by a new, open system design: implementing similar data structures and data management features to those in a data warehouse, directly on the kind of low-cost storage used for data lakes. Merging them together into a single system means that data teams can move faster as they are able to use data without needing to access multiple systems. Data lake houses also ensure that teams have the most complete and up-to-date data available for data science, machine learning, and business analytics projects.
+
+•	Databricks Lakehouse also includes built-in security and governance capabilities that help organizations comply with regulatory requirements and safeguard sensitive data. These include data access controls, auditing, and encryption.
+
+•	In summary, Databricks Lakehouse is a unified data management platform that combines the benefits of data lakes and data warehouses while providing powerful data management, analytics, and security features. It enables organizations to efficiently store, manage, and analyze vast amounts of structured and unstructured data, making it a valuable tool for modern data-driven organizations.
+
+
+
+PROJECT SUMMARY
+
+Organization     :	      Databricks
+License	         :        Apache 2.0
+Open/Proprietary :        Not an Opensource
+Source Path	     :        https://github.com/databricks-demos/dbdemos
+Brief Description:	      The Data bricks Lakehouse combines the ACID transactions and data governance of data warehouses with the flexibility and cost-efficiency of data lakes to enable business intelligence (BI) and machine learning (ML) on all data.
+
+
+
+
+PROJECT DETAILS
+
+  Features:
+1.	    Delta Tables:
+•	ACID Transactions
+•	Data versioning
+•	ETL
+•	Indexing
+
+2.	Unity Catalog:
+•	Data governance
+•	Data sharing
+•	Data auditing
+By storing data with Delta Lake, you enable downstream data scientists, analysts, and machine learning engineers to leverage the same production data supporting your core ETL workloads as soon as data is processed.
+Unity Catalog ensures that you have complete control over who gains access to which data and provides a centralized mechanism for managing all data governance and access controls without needing to replicate your data.
+
+1.Delta tables
+     Tables created on Databricks use the Delta Lake protocol by default. When you create a new Delta table:
+•	Metadata used to reference the table is added to the meta-store in the declared schema or database.
+•	Data and table metadata are saved to a directory in cloud object storage.
+The meta-store reference to a Delta table is technically optional; you can create Delta tables by directly interacting with directory paths using Spark APIs. Some new features that build upon Delta Lake will store additional metadata in the table directory, but all Delta tables have:
+•	A directory containing table data in the Parquet file format.
+•	A sub-directory /_delta_log that contains metadata about table versions in JSON and Parquet format.
+
+2.Unity Catalog
+   Unity Catalog unifies data governance and discovery on Databricks. Available in            notebooks, jobs, and Databricks SQL, Unity Catalog provides features and UIs that enable workloads and users designed for both data lakes and data warehouse.
+•	Account-level management of the Unity Catalog meta-store means databases, data objects, and permissions can be shared across Databricks workspaces.
+•	You can leverage three tier name spacing (<catalog>.<database>.<table>) for organizing and granting access to data.
+•	External locations and storage credentials are also securable objects with similar ACL setting to other data objects.
+•	The Data Explorer provides a graphical user interface to explore databases and manage permissions.
+
+Architecture:
+Databricks is structured to enable secure cross-functional team collaboration while keeping a significant amount of backend services managed by Databricks so you can stay focused on your data science, data analytics, and data engineering tasks.
+Databricks operates out of a control plane and a data plane.
+Although architectures can vary depending on custom configurations, the following diagram represents the most common structure and flow of data for Databricks on AWS environments.
+The following diagram describes the overall architecture of the Classic data plane. For architectural details about the serverless data plane that is used for serverless SQL warehouses, see Serverless compute.
+
+ 
+                            
+
+Control plane and Data plane
+•	The control plane includes the backend services that Databricks manages in its own AWS account. Notebook commands and many other workspace configurations are stored in the control plane and encrypted at rest.
+•	The data plane is where your data is processed.
+•	For most Databricks computation, the compute resources are in your AWS account in what is called the Classic data plane. This is the type of data plane Databricks uses for notebooks, jobs, and for pro and classic Databricks SQL warehouses.
+•	If you enable serverless compute for Databricks SQL, the compute resources for Databricks SQL are in a shared Serverless data plane. The compute resources for notebooks, jobs, and pro and classic Databricks SQL warehouses still live in the Classic data plane in the customer account. See Serverless compute.
+
+Use Databricks connectors to connect clusters to external data sources outside of your AWS account to ingest data or for storage. You can also ingest data from external streaming data sources, such as events data, streaming data, IoT data, and more.
+Your data lake is stored at rest in your own AWS account.
+Job results reside in storage in your account.
+Interactive notebook results are stored in a combination of the control plane (partial results for presentation in the UI) and your AWS storage. If you want interactive notebook results stored only in your cloud account storage, you can ask your Databricks representative to enable interactive notebook results in the customer account for your workspace. Note that some metadata about results, such as chart column names, continues to be stored in the control plane. 
+
+
+
+Key Features/Technology:
+•	metadata layers for data lakes
+•	new query engine designs providing high-performance SQL execution on data lakes
+•	optimized access for data science and machine learning tools.
+A metadata layer is a layer in the reference model for standardization in statistics used to denote the set of attributes related to statistical metainformation.
+Performance is key for data lake-houses to become the predominant data architecture used by businesses today as it's one of the key reasons that data warehouses exist in the two-tier architecture.
+
+
+Goals/Objectives:
+•	Simple - unify your data, analytics, and AI use cases on a single platform.
+•	Open - build on open source and open standards.
+•	Multi-cloud - One consistent data platform across clouds.
+
+
+
+Steps to build data lakehouse:
+
+•	Start with the data lake that already manages most of the enterprise data.
+•	Bring quality and governance to your data lake
+•	Optimize data for fast query performance
+•	Provide native support for machine learning
+•	Prevent lock-in by using open data formats and APIs
+
+
+
+
+REFERENCES
+
+www.databricks.com
+https://github.com
